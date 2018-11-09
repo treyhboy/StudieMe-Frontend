@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Home from './Components/Home';
+// import Home from './Components/Home';
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { LinkedInPopUp } from './Components/src';
+import LinkedInPage from './Components/LinkedInPage';
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
@@ -21,10 +24,26 @@ class App extends Component {
     return (
       <div>
         <GlobalStyle/>
-        <Home/>
+          <BrowserRouter>
+              <Switch >
+                  <Route exact path="/linkedin" component={LinkedInPopUp} />
+                  <Route path="/" component={LinkedInPage} />
+              </Switch>
+          </BrowserRouter>
       </div>
     );
   }
 }
 
 export default App;
+
+
+// class Demo extends Component {
+//     render() {
+//         return (
+//
+//         );
+//     }
+// }
+//
+// render(<Demo />, document.querySelector('#demo'));

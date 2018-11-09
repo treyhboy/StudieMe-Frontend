@@ -50,7 +50,7 @@ justify-content: space-around;
 align-items: center;
 flex-flow: row;
 height: 8rem;
-width: 22%; 
+width: 22%;
 //background-color: orange;
 `
 const Button = styled.div`
@@ -64,7 +64,7 @@ border: solid 1px #24D89B;
 color: ${props=>props.color};
 background-color: ${props=>props.bcolor};
 font-size: ${props=>props.size||"2rem"};
-font-weight: 200; 
+font-weight: 200;
 transition: .5s;
 &:hover{
 color: ${props=>props.bcolor};
@@ -140,6 +140,62 @@ width: 100%;
 
 
 class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {NormalNews:{} ,id:"",FeaturedNews:{},isLoaded:false,CurrNews:{},count:0};
+        this.login = this.login.bind(this);
+
+    }
+    componentDidMount()
+    {
+        this.loadLinkedinJS();
+    }
+    loadLinkedinJS = () => {
+        window.updateAuthorizeStatus = this.updateAuthorizeStatus;
+        var script = window.document.createElement("script");
+        script.src = "//platform.linkedin.com/in.js";
+        script.innerHTML = `api_key:${"81k5i16hicsnq3"}
+        authorize: true
+        onLoad:updateAuthorizeStatus`;
+        script.async = true;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    };
+
+    login()
+    {
+        console.log("IN login");
+        fetch("https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=81k5i16hicsnq3&scope=r_basicprofile&state=123456&redirect_uri=http://localhost:3002/"
+            ,{mode: 'cors'})
+
+        // .then(res => res.json())
+        .then(
+            (result) => {
+                console.log(result.code);
+                fetch(`https://www.linkedin.com/oauth/v2/accessToken`,
+                    {   mode: 'cors',
+                        method: 'POST',
+                        body: JSON.stringify({grant_type:"authorization_code",
+                            code:result.code,
+                            redirect_uri:"http://localhost:3002/",
+                            client_id:"81k5i16hicsnq3",
+                            client_secret:"GC3LNUuTqXoaqlHD"})})
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            console.log("result1");
+                            console.log(result);
+                        },
+                        (error) => {
+                            console.log("error2")
+                            console.log(error)
+                        }
+                    )
+            },
+            (error) => {
+                console.log("error1")
+                console.log(error)
+            }
+        )}
     render() {
         return (
             <Container>
@@ -165,7 +221,7 @@ class Home extends Component {
                         <Button color={"#24D89B"} bcolor={"white"}>
                             SignUp
                         </Button>
-                        <Button bcolor={"#24D89B"} color={"white"}>
+                        <Button bcolor={"#24D89B"} color={"white"} onClick={this.login}>
                             Login
                         </Button>
                     </LoginBox>
