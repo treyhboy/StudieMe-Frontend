@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { LinkedIn } from './Helpers';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
 display: flex;
@@ -99,18 +102,18 @@ justify-content: center;
 align-items: center;
 flex-flow: column;
 box-sizing:border-box;
-width: 80%;
-height: 35rem;
+width: 70%;
+height: 30rem;
 
 `
 const DesHead = styled.div`
 display: flex;
 justify-content: center;
-align-items: center;
+align-items: flex-start;
 flex-flow: column;
 height: 20%;
 width: 100%;
-font-size: 4rem;
+font-size: 3.5rem;
 font-weight: lighter;
 color: gray;
 
@@ -118,11 +121,11 @@ color: gray;
 const DesMain = styled.div`
 display: flex;
 justify-content: center;
-align-items: center;
+align-items: flex-start;
 flex-flow: column;
 height: 60%;
-width: 85%;
-font-size: 2.5rem;
+width: 100%;
+font-size: 2.2rem;
 font-weight: lighter;
 color: gray;
 
@@ -130,7 +133,7 @@ color: gray;
 const DesButton = styled.div`
 display: flex;
 justify-content: center;
-align-items: center;
+align-items: flex-start;
 flex-flow: column;
 height: 20%;
 width: 100%;
@@ -138,28 +141,39 @@ width: 100%;
 `
 
 
-
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {NormalNews:{} ,id:"",FeaturedNews:{},isLoaded:false,CurrNews:{},count:0};
+        this.state = {isAuthenticated:this.props.isAuthenticated,code:"",codeError:''};
         this.login = this.login.bind(this);
+    }
 
+    handleSuccess = (data) => {
+        this.setState({
+            code: data.code,
+        });
+        var d = data.code;
+        axios.post(`http://localhost:1234/login`,{da:"hello world",d})
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                console.log(res.data.status);
+                console.log(res.data.data);
+                console.log(res.data.token);
+                var name = res.data.firstName + " " + res.data.lastName;
+                if(res.data.status) {
+                    localStorage.setItem("LiToken",JSON.stringify(res.data.token))
+                    this.props.Authtrue(res.data.token, name, res.data.data);
+                }
+            })
     }
-    componentDidMount()
-    {
-        this.loadLinkedinJS();
+
+    handleFailure = (error) => {
+        this.setState({
+            code: '',
+            codeError: error.errorMessage,
+        });
     }
-    loadLinkedinJS = () => {
-        window.updateAuthorizeStatus = this.updateAuthorizeStatus;
-        var script = window.document.createElement("script");
-        script.src = "//platform.linkedin.com/in.js";
-        script.innerHTML = `api_key:${"81k5i16hicsnq3"}
-        authorize: true
-        onLoad:updateAuthorizeStatus`;
-        script.async = true;
-        document.getElementsByTagName("head")[0].appendChild(script);
-    };
 
     login()
     {
@@ -171,25 +185,6 @@ class Home extends Component {
         .then(
             (result) => {
                 console.log(result.code);
-                fetch(`https://www.linkedin.com/oauth/v2/accessToken`,
-                    {   mode: 'cors',
-                        method: 'POST',
-                        body: JSON.stringify({grant_type:"authorization_code",
-                            code:result.code,
-                            redirect_uri:"http://localhost:3002/",
-                            client_id:"81k5i16hicsnq3",
-                            client_secret:"GC3LNUuTqXoaqlHD"})})
-                    .then(res => res.json())
-                    .then(
-                        (result) => {
-                            console.log("result1");
-                            console.log(result);
-                        },
-                        (error) => {
-                            console.log("error2")
-                            console.log(error)
-                        }
-                    )
             },
             (error) => {
                 console.log("error1")
@@ -221,9 +216,13 @@ class Home extends Component {
                         <Button color={"#24D89B"} bcolor={"white"}>
                             SignUp
                         </Button>
-                        <Button bcolor={"#24D89B"} color={"white"} onClick={this.login}>
-                            Login
-                        </Button>
+                        <LinkedIn
+                            clientId="81k5i16hicsnq3"
+                            onFailure={this.handleFailure}
+                            onSuccess={this.handleSuccess}
+                            redirectUri={`${window.location.origin}/linkedin`}
+                        >
+                        </LinkedIn>
                     </LoginBox>
                 </Header>
                 <About>

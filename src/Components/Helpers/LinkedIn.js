@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './assets/index.css';
+import styled from 'styled-components';
+
+const Button = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: ${props=>props.height||"4rem"};
+width: ${props=>props.width||"11rem"};
+border-radius: 1rem;
+border: solid 1px #24D89B;
+color: ${props=>props.color};
+background-color: ${props=>props.bcolor};
+font-size: ${props=>props.size||"2rem"};
+font-weight: 200;
+transition: .5s;
+&:hover{
+color: ${props=>props.bcolor};
+background-color: ${props=>props.color};
+}
+`
 
 export class LinkedIn extends Component {
   static propTypes = {
@@ -50,17 +70,12 @@ export class LinkedIn extends Component {
 
 
   render() {
-    const { className, disabled, children } = this.props;
+    const { disabled } = this.props;
     return (
-      <button
-        type="button"
-        onClick={this.handleConnectLinkedInClick}
-        className={className}
-        disabled={disabled}
-      >
-        {children}
-      </button>
-
+        <Button bcolor={"#24D89B"} color={"white"} onClick={this.handleConnectLinkedInClick}
+                disabled={disabled}>
+          Login
+        </Button>
     );
   }
 }
@@ -68,6 +83,5 @@ export class LinkedIn extends Component {
 LinkedIn.defaultProps = {
   className: 'btn-linkedin',
   disabled: false,
-  children: (<img src={require('./assets/linkedin.png')} alt="Log in with Linked In" style={{ maxWidth: '180px' }} />),
 };
 export default LinkedIn;

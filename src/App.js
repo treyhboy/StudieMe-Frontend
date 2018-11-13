@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-// import Home from './Components/Home';
+import Home from './Components/Home';
+import Dashboard from './Components/Dashboard';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { LinkedInPopUp } from './Components/src';
-import LinkedInPage from './Components/LinkedInPage';
-import { createGlobalStyle } from 'styled-components'
+import { LinkedInPopUp } from './Components/Helpers';
+import { createGlobalStyle } from 'styled-components';
+import axios from 'axios';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,14 +21,72 @@ const GlobalStyle = createGlobalStyle`
 `
 
 class App extends Component {
-  render() {
+    constructor(props) {
+        super(props);
+        this.state = {isAuthenticated:"loading",token:"",tokenError:"",User:"",Data:""};
+        this.Authtrue = this.Authtrue.bind(this);
+        this.isAuth = this.isAuth.bind(this);
+    }
+    componentDidMount()
+    {
+        console.log("in mount")
+        if(this.state.isAuthenticated==="loading") {
+            console.log("in c1")
+            var token = JSON.parse(localStorage.getItem('LiToken'))
+            if (token) {
+                console.log("token true")
+                this.setState({
+                    token: token
+                })
+                axios.post(`http://localhost:1234/verify`, {token: token})
+                    .then(res => {
+                        this.setState({
+                            isAuthenticated: res.data.status
+                        })
+                        console.log(this.state.isAuthenticated)
+                    })
+            }
+            else {
+                this.setState({
+                    isAuthenticated: false
+                })
+            }
+        }
+
+    }
+    Authtrue(token,user,data)
+    {
+        console.log("in auth true")
+        console.log(token)
+        console.log(user)
+        console.log(data)
+        this.setState({
+            token:token,
+            isAuthenticated:true,
+            User:user,
+            Data:data
+        });
+
+
+    }
+    isAuth(token)
+    {
+
+    }
+
+    render() {
     return (
       <div>
         <GlobalStyle/>
           <BrowserRouter>
               <Switch >
                   <Route exact path="/linkedin" component={LinkedInPopUp} />
-                  <Route path="/" component={LinkedInPage} />
+                      <Route path="/" render={() =>
+                          this.state.isAuthenticated==="loading"?<div>loading...</div>:
+                              (this.state.isAuthenticated?
+                              <Dashboard Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />
+                              :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
+                             />
               </Switch>
           </BrowserRouter>
       </div>
@@ -36,14 +95,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// class Demo extends Component {
-//     render() {
-//         return (
-//
-//         );
-//     }
-// }
-//
-// render(<Demo />, document.querySelector('#demo'));
