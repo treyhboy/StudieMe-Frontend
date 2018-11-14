@@ -32,7 +32,7 @@ class App extends Component {
         console.log("in mount")
         if(this.state.isAuthenticated==="loading") {
             console.log("in c1")
-            var token = JSON.parse(localStorage.getItem('LiToken'))
+            var token = JSON.parse(sessionStorage.getItem('LiToken'))
             if (token) {
                 console.log("token true")
                 this.setState({
@@ -40,10 +40,13 @@ class App extends Component {
                 })
                 axios.post(`http://localhost:1234/verify`, {token: token})
                     .then(res => {
+                        console.log(res)
                         this.setState({
-                            isAuthenticated: res.data.status
+                            isAuthenticated: res.data.status,
+                            User:res.data.name
                         })
                         console.log(this.state.isAuthenticated)
+                        console.log(this.state.User)
                     })
             }
             else {
@@ -84,7 +87,7 @@ class App extends Component {
                       <Route path="/" render={() =>
                           this.state.isAuthenticated==="loading"?<div>loading...</div>:
                               (this.state.isAuthenticated?
-                              <Dashboard Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />
+                              <Dashboard Authtrue={this.Authtrue} User={this.state.User} isAuthenticated={this.state.isAuthenticated} />
                               :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
                              />
               </Switch>

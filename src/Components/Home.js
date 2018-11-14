@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LinkedIn } from './Helpers';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Container = styled.div`
 display: flex;
@@ -160,10 +160,10 @@ class Home extends Component {
                 console.log(res.data.status);
                 console.log(res.data.data);
                 console.log(res.data.token);
-                var name = res.data.firstName + " " + res.data.lastName;
+                console.log(res.data.name)
                 if(res.data.status) {
-                    localStorage.setItem("LiToken",JSON.stringify(res.data.token))
-                    this.props.Authtrue(res.data.token, name, res.data.data);
+                    sessionStorage.setItem("LiToken",JSON.stringify(res.data.token))
+                    this.props.Authtrue(res.data.token, res.data.name, res.data.data);
                 }
             })
     }
