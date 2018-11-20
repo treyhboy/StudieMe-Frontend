@@ -5,6 +5,7 @@
   "dependencies": {
     "autobind-decorator": "^2.2.1",
     "axios": "^0.18.0",
+    "cryptr": "^4.0.1",
     "enzyme": "^3.6.0",
     "prop-types": "^15.6.2",
     "query-string": "~5.1.1",
