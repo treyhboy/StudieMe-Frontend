@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>caret-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-1403.000000, -27.000000)" fill="#24D89B" fill-rule="nonzero">
+            <g id="caret-down" transform="translate(1403.000000, 27.000000)">
+                <path d="M13.0858319,0.329812656 C12.9210134,0.109876746 12.7256392,0 12.4998917,0 L0.833396041,0 C0.607557298,0 0.412319887,0.109876746 0.247364569,0.329812656 C0.0824092506,0.549991791 0,0.810302997 0,1.11123272 C0,1.41210164 0.0824092506,1.67241285 0.247364569,1.89240957 L6.08063519,9.66994412 C6.24577293,9.88988003 6.44101035,10 6.66666667,10 C6.89232299,10 7.08774282,9.88988003 7.25256132,9.66994412 L13.0858319,1.89234876 C13.2506048,1.67241285 13.3333333,1.41210164 13.3333333,1.11117192 C13.3333333,0.810302997 13.2506048,0.549991791 13.0858319,0.329812656 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

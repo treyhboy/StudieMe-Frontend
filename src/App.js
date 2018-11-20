@@ -3,9 +3,11 @@ import Home from './Components/Home';
 import Dashboard from './Components/Dashboard';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {Router} from 'react-router-dom';
 import { LinkedInPopUp } from './Components/Helpers';
 import { createGlobalStyle } from 'styled-components';
 import axios from 'axios';
+import {createBrowserHistory} from 'history';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -45,8 +47,7 @@ class App extends Component {
                             isAuthenticated: res.data.status,
                             User:res.data.name
                         })
-                        console.log(this.state.isAuthenticated)
-                        console.log(this.state.User)
+                        console.log(this.state)
                     })
             }
             else {
@@ -79,6 +80,7 @@ class App extends Component {
 
     render() {
     return (
+        <Router history={createBrowserHistory()} >
       <div>
         <GlobalStyle/>
           <BrowserRouter>
@@ -93,6 +95,7 @@ class App extends Component {
               </Switch>
           </BrowserRouter>
       </div>
+        </Router>
     );
   }
 }

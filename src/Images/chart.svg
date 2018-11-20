@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="261px" height="260px" viewBox="0 0 261 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M135.05826,0.711348214 C60.6015605,0.711348214 0.241918118,60.8614085 0.241918118,135.059578 C0.241918118,209.259683 60.6015605,269.409743 135.05826,269.409743 C209.516902,269.409743 269.876545,209.259683 269.876545,135.059578 C269.876545,60.8614085 209.516902,0.711348214 135.05826,0.711348214" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-166.000000, -106.000000)">
+            <g id="Group-14" transform="translate(161.000000, 101.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-6"></g>
+                <path d="M135.05826,5.48371875 C103.232585,5.48371875 74.0907685,16.8959933 51.4896451,35.8132366 L135.05826,135.061513 L135.05826,5.48371875" id="Fill-5" fill-opacity="0.570170969" fill="#50E3C2" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M22.4643494,70.2803571 C14.9973173,83.1421473 9.68980139,97.3953951 7.02342036,112.564025 L135.05826,135.061513 L22.4643494,70.2803571" id="Fill-7" fill-opacity="0.59912817" fill="#9013FE" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M51.4896451,35.8132366 C39.9172018,45.5011875 30.0789744,57.1669821 22.4643494,70.2803571 L135.05826,135.061513 L51.4896451,35.8132366" id="Fill-8" fill-opacity="0.600769928" fill="#4A90E2" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M179.540021,13.2712366 C165.662411,8.23566964 150.68368,5.48371875 135.05826,5.48371875 L135.05826,135.061513 L179.540021,13.2712366" id="Fill-9" fill-opacity="0.613196332" fill="#F8E71C" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M51.4896451,234.307855 C62.99606,243.937748 76.1861984,251.630437 90.5764995,256.849855 L135.05826,135.061513 L51.4896451,234.307855" id="Fill-10" fill-opacity="0.584069293" fill="#5396E3" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M179.540021,13.2712366 L90.5764995,256.849855 C104.45411,261.885422 119.43284,264.637373 135.05826,264.637373 C206.869941,264.637373 265.085604,206.623848 265.085604,135.061513 C265.085604,79.0684085 229.445819,31.3756674 179.540021,13.2712366" id="Fill-11" fill-opacity="0.627122962" fill="#24D89B" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M7.02342036,112.564025 C5.73975112,119.873531 5.03091712,127.382371 5.03091712,135.061513 C5.03091712,158.667911 11.396829,180.778346 22.4643494,199.840734 L135.05826,135.061513 L7.02342036,112.564025" id="Fill-12" fill-opacity="0.474892437" fill="#FFF24E" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <path d="M22.4643494,199.840734 C30.0789744,212.954109 39.9172018,224.619904 51.4896451,234.307855 L135.05826,135.061513 L22.4643494,199.840734" id="Fill-13" fill-opacity="0.5997226" fill="#4CBFE1" style="mix-blend-mode: lighten;" mask="url(#mask-2)"></path>
+                <circle id="Oval" fill="#F8F8F8" fill-rule="nonzero" mask="url(#mask-2)" cx="135" cy="135" r="75"></circle>
+                <text id="Profile-Description" mask="url(#mask-2)" font-family="HelveticaNeue-Thin, Helvetica Neue" font-size="18" font-weight="300" fill="#9B9B9B">
+                    <tspan x="112.95" y="122">Profile</tspan>
+                    <tspan x="92.961" y="143">Description</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
