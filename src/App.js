@@ -45,7 +45,8 @@ class App extends Component {
                         console.log(res)
                         this.setState({
                             isAuthenticated: res.data.status,
-                            User:res.data.name
+                            User:res.data.name,
+                            Data:res.data.data
                         })
                         console.log(this.state)
                     })
@@ -89,7 +90,7 @@ class App extends Component {
                       <Route path="/" render={() =>
                           this.state.isAuthenticated==="loading"?<div>loading...</div>:
                               (this.state.isAuthenticated?
-                              <Dashboard Authtrue={this.Authtrue} User={this.state.User} isAuthenticated={this.state.isAuthenticated} />
+                              <Dashboard Authtrue={this.Authtrue} User={this.state.User} isAuthenticated={this.state.isAuthenticated} Data={this.state.Data}/>
                               :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
                              />
               </Switch>

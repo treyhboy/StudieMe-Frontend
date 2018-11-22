@@ -329,7 +329,7 @@ class Dashboard extends Component {
     handleclick()
     {
         console.log(this.state.value)
-        axios.post(`http://localhost:1234/api`,{'data':this.state.value})
+        axios.post(`http://localhost:1234/api`,{'data':this.state.value,'Lidata':this.props.Data})
             .then(res => {
                 this.setState({
                     status:true
