@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {isAuthenticated:"loading",token:"",tokenError:"",User:"",Data:""};
+        this.state = {isAuthenticated:"loading",token:"",tokenError:"",User:"",Data:"",PP:""};
         this.Authtrue = this.Authtrue.bind(this);
         this.isAuth = this.isAuth.bind(this);
     }
@@ -46,7 +46,8 @@ class App extends Component {
                         this.setState({
                             isAuthenticated: res.data.status,
                             User:res.data.name,
-                            Data:res.data.data
+                            Data:res.data.data,
+                            PP:res.data.data.pictureUrl
                         })
                         console.log(this.state)
                     })
@@ -69,7 +70,8 @@ class App extends Component {
             token:token,
             isAuthenticated:true,
             User:user,
-            Data:data
+            Data:data,
+            PP:data.pictureUrl
         });
 
 
@@ -90,7 +92,7 @@ class App extends Component {
                       <Route path="/" render={() =>
                           this.state.isAuthenticated==="loading"?<div>loading...</div>:
                               (this.state.isAuthenticated?
-                              <Dashboard Authtrue={this.Authtrue} User={this.state.User} isAuthenticated={this.state.isAuthenticated} Data={this.state.Data}/>
+                              <Dashboard Authtrue={this.Authtrue} User={this.state.User} PP={this.state.PP} isAuthenticated={this.state.isAuthenticated} Data={this.state.Data}/>
                               :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
                              />
               </Switch>
