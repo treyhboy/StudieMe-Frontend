@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Home from './Components/Home';
 import Dashboard from './Components/Dashboard';
+import Blogs from './Components/Blogs';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {Router} from 'react-router-dom';
@@ -83,7 +84,7 @@ class App extends Component {
 
     render() {
     return (
-        <Router history={createBrowserHistory()} >
+        <Router  history={createBrowserHistory()} >
       <div>
         <GlobalStyle/>
           <BrowserRouter>
@@ -95,6 +96,9 @@ class App extends Component {
                               <Dashboard Authtrue={this.Authtrue} User={this.state.User} PP={this.state.PP} isAuthenticated={this.state.isAuthenticated} Data={this.state.Data}/>
                               :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
                              />
+
+
+
               </Switch>
           </BrowserRouter>
       </div>

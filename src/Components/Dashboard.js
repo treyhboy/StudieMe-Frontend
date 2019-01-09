@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import DashboardMain from './DashboardMain';
+import Gre from './Gre';
+import Blogs from './Blogs';
 import {Route,Switch,Link,Redirect} from 'react-router-dom';
 import axios from 'axios';
 import {PieChart, Pie,ResponsiveContainer,Tooltip,LineChart,Line,CartesianGrid,Legend,XAxis,YAxis} from 'recharts';
@@ -150,45 +153,7 @@ height: 92%;
 width: 100%;
 //background-color: red;
 `
-const InputParent = styled.div`
-display: flex;
-justify-content: space-around;
-align-items: center;
-flex-flow: column;
-height: 35%;
-width: 40%;
-border: solid 1px #f8f8f8;
-border-radius: 1rem;
-background-color: white;
-`
 
-const Input = styled.input`
-height: 5rem;
-width: 60%;
-border: none;
-outline: none;
-font-size: 2rem;
-border-bottom: solid 1px gray;
-color: gray;
-`
-const EnterButton = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 4.5rem;
-width: 14rem;
-color: white;
-font-weight: 200;
-background-color: #24D89B;
-border: solid 1px #24D89B;
-&:hover{
-background-color: white;
-color: #24D89B;
-}
-font-size: 1.8rem;
-
-border-radius: 3rem;
-`
 const ContentCol1 = styled.div`
 display: flex;
 flex-flow: column;
@@ -410,12 +375,9 @@ class Dashboard extends Component {
         this.setState({
           selectedCollege:ev.target.id
         })
-        axios.post(`http://127.0.0.1:5000/college`,{subs:this.state.subs,college:ev.target.id})
+        axios.post(`http://localhost:1234/api2`,{subs:this.state.subs,college:ev.target.id})
             .then(res => {
                 console.log(res.data)
-                // console.log(res.data.faculty)
-                // console.log(res.data.publication)
-                // console.log(res.data.graph)
                 let f = [];
                 for(let i in res.data.faculty)
                 {
@@ -437,7 +399,6 @@ class Dashboard extends Component {
     }
     handleclick(gre)
     {
-        // console.log(this.state)
         let subjects = ['Artificial Intelligence',
             'Computer Vision',
             'Machine learning & data mining',
@@ -505,7 +466,7 @@ class Dashboard extends Component {
                     PieData:sa
                 })
                 let coll = res.data.data.college[0];
-                axios.post(`http://127.0.0.1:5000/college`,{subs:res.data.data.subs,college:res.data.data.college[0]})
+                axios.post(`http://localhost:1234/api2`,{subs:res.data.data.subs,college:res.data.data.college[0]})
                     .then(res => {
                         console.log(res)
                         console.log(res.data.faculty)
@@ -552,15 +513,21 @@ class Dashboard extends Component {
                     <NavToggle>
                         <Toggle src={require('../Images/Toggle icon.svg')}/>
                     </NavToggle>
+                    <Link to={"/Blogs"}>
                     <NavIcon>
                         <Icon src={require('../Images/home.svg')}/>
                     </NavIcon>
-                    <NavIcon>
-                        <Icon src={require('../Images/order.svg')}/>
-                    </NavIcon>
-                    <NavIcon onClick={this.settings}>
-                        <Icon src={require('../Images/settings.svg')}/>
-                    </NavIcon>
+                    </Link>
+                    <Link to={"/Dashboard"}>
+                        <NavIcon>
+                            <Icon src={require('../Images/order.svg')}/>
+                        </NavIcon>
+                    </Link>
+                    <Link to={"/"}>
+                        <NavIcon onClick={this.settings}>
+                            <Icon src={require('../Images/settings.svg')}/>
+                        </NavIcon>
+                    </Link>
                     <NavIcon>
                         <Icon src={require('../Images/man.svg')}/>
                     </NavIcon>
@@ -586,87 +553,21 @@ class Dashboard extends Component {
                         </HeaderUser>
                     </Header>
                     <Route exact path="/" render={() =>this.state.status ? (
-                        <Redirect to="/dashboard"/>
-                    ) :(<Content>
-                        <InputParent>
-                            {/*<Input placeholder={"Enter Resume Data"} value={this.state.value} onChange={this.handlechange}/>*/}
-                            <Input placeholder={"Enter Gre Score"} value={this.state.gre} onChange={this.handleGrechange}/>
-                            <EnterButton onClick={this.handleclick}>
-                                Send
-                            </EnterButton>
-                        </InputParent>
-                    </Content>)
+                        <Redirect to="/Blogs"/>
+                    ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange}/>
                     }
                     />
-                    <Route path="/dashboard" render={() => !this.state.status ? (
+                    <Route path="/Dashboard" render={() => !this.state.status ? (
                         <Redirect to="/"/>
-                    ) :(<Content>
-                        <ContentCol1>
-                            <Col1Row1>
-                                <Row1Pie>
-                                    {/*<Pie src={require('../Images/chart.svg')}/>*/}
-                                    <ResponsiveContainer height={"100%"} width={"100%"}>
-                                    <PieChart >
-                                        <Pie data={this.state.PieData} dataKey="score" nameKey="subject" cx="50%" cy="50%" outerRadius={80} fill="#5FDAFF" />
-                                        <Pie data={this.state.PieData} dataKey="score" nameKey="subject" cx="50%" cy="50%" innerRadius={100} outerRadius={125} fill="#24D89B" label/>
-                                        <Tooltip/>
-                                    </PieChart>
-                                    </ResponsiveContainer>
-                                </Row1Pie>
-                                <Row1Graph>
-                                    <ResponsiveContainer height={"100%"} width={"100%"}>
-                                    <LineChart  data={this.state.subGraph}
-                                               margin={{ top: 20, right: 40,left:20}}>
-                                        <XAxis dataKey="subject" />
-                                        <Tooltip />
-                                        {/*<Legend />*/}
-                                        <Line type="monotone" dataKey="Percent" nameKey="subject" stroke="#5FDAFF" />
-                                        {/*<Line type="monotone" dataKey="uv" stroke="#82ca9d" />*/}
-                                    </LineChart>
-                                    </ResponsiveContainer>
-                                    {/*<Graph src={require('../Images/Graph2.svg')}/>*/}
-                                </Row1Graph>
-                            </Col1Row1>
-                            <Col1Row2>
-                                <Prof>
-                                    <ProfHead>
-                                        Top 10 Matched Professors
-                                    </ProfHead>
-                                    <ProfContent>
-                                        {this.state.Faculty.map((item, index) => (
-                                            <ContentRow key={index}>
-                                                {index+1}{". "}{item.faculty}
-                                                <Perc right={"2rem"}>{item.Pubs + "  Pubs"}</Perc>
-                                            </ContentRow>
-                                        ))}
-
-                                    </ProfContent>
-                                </Prof>
-                            </Col1Row2>
-                        </ContentCol1>
-                        <ContentCol2>
-                            <College>
-                                <CollegeHead>
-                                    Top 10 Matched Colleges
-                                </CollegeHead>
-                                <CollegeContent>
-                                    {this.state.College.map((item, index) => (
-                                        <CollegeRow key={index}
-                                                    color={(this.state.selectedCollege===item.college?"#24D89B":"white")}
-                                                    tcolor={(this.state.selectedCollege===item.college?"white":"gray")}
-                                                    onClick={this.toggle}
-                                                    id={item.college}
-                                        >
-                                            {index+1}{". "}{item.college}{"  "}
-                                            <Perc>{(item.Per*100).toFixed(2) + "%"}</Perc>
-                                        </CollegeRow>
-                                    ))}
-                                </CollegeContent>
-                            </College>
-                        </ContentCol2>
-                    </Content>)
-                    }
-                    />
+                    ) :(<DashboardMain PieData={this.state.PieData}
+                                       subGraph = {this.state.subGraph}
+                                       Faculty = {this.state.Faculty}
+                                       College = {this.state.College}
+                                       selectedCollege = {this.state.selectedCollege}
+                                       toggle = {this.toggle}
+                        />)
+                    }/>
+                    <Route path="/Blogs" render = {() => <Blogs/>} />
 
                 </Main>
             </Container>
