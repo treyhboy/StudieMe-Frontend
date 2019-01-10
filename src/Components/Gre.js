@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {Route,Switch,Link,Redirect} from 'react-router-dom';
 
 const Content = styled.div`
 display: flex;
@@ -45,6 +46,9 @@ color: #24D89B;
 font-size: 1.8rem;
 border-radius: 3rem;
 `
+const Fonti = styled.span`
+text-decoration: underline #24D89B;
+`
 
 class Gre extends Component {
     constructor(props, context) {
@@ -55,9 +59,13 @@ class Gre extends Component {
             <InputParent>
                 {/*<Input placeholder={"Enter Resume Data"} value={this.state.value} onChange={this.handlechange}/>*/}
                 <Input placeholder={"Enter Gre Score"} value={this.props.gre} onChange={this.props.handlegre}/>
+                <Link to={'/Dashboard'}>
                 <EnterButton onClick={this.props.handleclick}>
+                    <Fonti>
                     Send
+                    </Fonti>
                 </EnterButton>
+                </Link>
             </InputParent>
         </Content>)
     }

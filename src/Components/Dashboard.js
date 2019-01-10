@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import DashboardMain from './DashboardMain';
 import Gre from './Gre';
 import Blogs from './Blogs';
+import Blog2 from './Blog2';
+import BlogSelection from './BlogSelection';
 import {Route,Switch,Link,Redirect} from 'react-router-dom';
 import axios from 'axios';
 import {PieChart, Pie,ResponsiveContainer,Tooltip,LineChart,Line,CartesianGrid,Legend,XAxis,YAxis} from 'recharts';
@@ -145,174 +147,6 @@ flex-flow: column;
 height: 100%;
 width: 95%;
 `
-const Content = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 92%;
-width: 100%;
-//background-color: red;
-`
-
-const ContentCol1 = styled.div`
-display: flex;
-flex-flow: column;
-height: 100%;
-width: 66%;
-
-`
-const Col1Row1 = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-height: 45%;
-width: 100%;
-
-`
-const Row1Pie = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-margin-left: 2rem;
-height: 100%;
-width: 45%;
-`
-// const Pie = styled.img`
-// height: 28rem;
-// width: auto;
-// `
-const Row1Graph = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 80%;
-width: 40%;
-margin-right: 6rem;
-border-radius:1rem;
-background-color: white;
-`
-// const Graph = styled.img`
-// height: 28rem;
-// width: auto;
-// `
-
-const Col1Row2 = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 55%;
-width: 100%;
-//background-color: palegreen;
-`
-const Prof = styled.div`
-display: flex;
-flex-flow: column;
-height: 80%;
-width: 91%;
-border-radius: 1rem;
-border: solid 1px #f8f8f8;
-background-color: white;
-`
-const ProfHead = styled.div`
-display: flex;
-align-items: center;
-height: 12%;
-width: 100%;
-font-size: 2.3rem;
-padding-left:3rem ;
-font-weight: 200;
-color:gray;
-//border-bottom: solid 1px #E3DEDE;
-`
-const ProfContent = styled.div`
-display: flex;
-flex-flow: column;
-height: 88%;
-width: 100%;
-
-//background-color: red;
-`
-const ContentRow = styled.div`
-display: flex;
-justify-content: space-between;
-box-sizing: content-box;
-height: 10%;
-width: 96.4%;
-font-size: 1.7rem;
-padding-left:3rem;
-font-family: 'Lato', sans-serif;
-font-weight: 100;
-color:gray;
-border-top: solid 1px #f8f8f8;
-cursor: pointer;
-&:hover{
-background-color: #f8f8f8;
-}
-`
-
-
-
-const ContentCol2 = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100%;
-width: 34%;
-`
-const College = styled.div`
-display: flex;
-flex-flow: column;
-height: 91%;
-width: 91%;
-border-radius: 1rem;
-border: solid 1px #f8f8f8;
-margin-bottom: 1rem;
-background-color: white;
-`
-const CollegeHead = styled.div`
-display: flex;
-align-items: center;
-height: 10%;
-width: 100%;
-font-size: 2.8rem;
-padding-left:3rem ;
-font-weight: 200;
-color:gray;
-//border-bottom: solid 1px #E3DEDE;
-`
-const CollegeContent = styled.div`
-display: flex;
-flex-flow: column;
-height: 90%;
-width: 100%;
-//background-color: red;
-`
-const CollegeRow = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-height: 10%;
-width: 93%;
-font-size: 2rem;
-padding-left:3rem;
-font-weight: 200;
-color:${props=>props.tcolor};
-background-color:${props=>props.color};
-border-top: solid 1px #f8f8f8;
-transition: .2s;
-cursor: pointer;
-//#24D89B
-//&:hover{
-//background-color: #f8f8f8;
-//}
-`
-const Perc =  styled.div`
-font-size: 1.6rem;
-font-family: 'Lato', sans-serif;
-font-weight: 200;
-padding-right: ${(props)=>props.right||'.5rem'};
-`
-
 
 
 class Dashboard extends Component {
@@ -513,7 +347,7 @@ class Dashboard extends Component {
                     <NavToggle>
                         <Toggle src={require('../Images/Toggle icon.svg')}/>
                     </NavToggle>
-                    <Link to={"/Blogs"}>
+                    <Link to={"/BlogSelection"}>
                     <NavIcon>
                         <Icon src={require('../Images/home.svg')}/>
                     </NavIcon>
@@ -553,7 +387,7 @@ class Dashboard extends Component {
                         </HeaderUser>
                     </Header>
                     <Route exact path="/" render={() =>this.state.status ? (
-                        <Redirect to="/Blogs"/>
+                        <Redirect to="/BlogSelection"/>
                     ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange}/>
                     }
                     />
@@ -567,7 +401,9 @@ class Dashboard extends Component {
                                        toggle = {this.toggle}
                         />)
                     }/>
-                    <Route path="/Blogs" render = {() => <Blogs/>} />
+                    <Route path="/Blog/1" render = {() => <Blogs/>} />
+                    <Route path="/Blog/2" render = {() => <Blog2/>} />
+                    <Route path="/BlogSelection" render = {() => <BlogSelection/>} />
 
                 </Main>
             </Container>
