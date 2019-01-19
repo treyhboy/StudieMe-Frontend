@@ -229,10 +229,11 @@ class Home extends Component {
                     <Sec content={"center"} item={"center"}>
                         <Description>
                             <DesHead>
-                                Study Abroad Made Easy
+                                Study Made Easy
                             </DesHead>
                             <DesMain>
-                                Wanna study abroad we are here to help you our AI powered college recommender and student support help you find the right college and updates you every day on the events and news about your dream college just sign in make your account and leave the rest on us
+                                Wanna study for Free ,we are here to help you with our free online content for all also
+                                 having difficulty in choosing college we are here with our AI powered college recommender and student support which help you find the right college just sign up and leave the rest on us
                             </DesMain>
                             <DesButton>
                                 <Button height={"5rem"} width={"18rem"} bcolor={"#24D89B"} color={"white"} size={"2.5rem"}>
