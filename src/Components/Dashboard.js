@@ -2,16 +2,8 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import DashboardMain from './DashboardMain';
 import Gre from './Gre';
-import Blogs from './Blogs';
-import Blog2 from './Blog2';
-import BlogSelection from './BlogSelection';
-import {Route,Switch,Link,Redirect} from 'react-router-dom';
+import {Route,Link,Redirect} from 'react-router-dom';
 import axios from 'axios';
-import {PieChart, Pie,ResponsiveContainer,Tooltip,LineChart,Line,CartesianGrid,Legend,XAxis,YAxis} from 'recharts';
-const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-    {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
-
-
 
 const Container = styled.div`
 display: flex;
@@ -174,7 +166,6 @@ class Dashboard extends Component {
                     status:true
                 })
                 this.handleclick(token)
-                // if(this.state.Gre)
         }
     }
     logout(){
@@ -387,7 +378,7 @@ class Dashboard extends Component {
                         </HeaderUser>
                     </Header>
                     <Route exact path="/" render={() =>this.state.status ? (
-                        <Redirect to="/BlogSelection"/>
+                        <Redirect to="/Dashboard"/>
                     ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange}/>
                     }
                     />
@@ -401,10 +392,6 @@ class Dashboard extends Component {
                                        toggle = {this.toggle}
                         />)
                     }/>
-                    <Route path="/Blog/1" render = {() => <Blogs/>} />
-                    <Route path="/Blog/2" render = {() => <Blog2/>} />
-                    <Route path="/BlogSelection" render = {() => <BlogSelection/>} />
-
                 </Main>
             </Container>
         );

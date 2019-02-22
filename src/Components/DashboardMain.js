@@ -14,7 +14,6 @@ display: flex;
 flex-flow: column;
 height: 100%;
 width: 66%;
-
 `
 const Col1Row1 = styled.div`
 display: flex;

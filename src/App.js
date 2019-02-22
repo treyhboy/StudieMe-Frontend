@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {isAuthenticated:"loading",token:"",tokenError:"",User:"",Data:"",PP:""};
+        this.state = {isAuthenticated:false,token:"",tokenError:"",User:"",Data:"",PP:""};
         this.Authtrue = this.Authtrue.bind(this);
         this.isAuth = this.isAuth.bind(this);
     }
@@ -57,6 +57,7 @@ class App extends Component {
                 this.setState({
                     isAuthenticated: false
                 })
+                console.log(this.state)
             }
         }
 
@@ -96,9 +97,6 @@ class App extends Component {
                               <Dashboard Authtrue={this.Authtrue} User={this.state.User} PP={this.state.PP} isAuthenticated={this.state.isAuthenticated} Data={this.state.Data}/>
                               :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
                              />
-
-
-
               </Switch>
           </BrowserRouter>
       </div>
