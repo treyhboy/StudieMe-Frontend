@@ -54,7 +54,7 @@ class Gre extends Component {
     render() {
         return(<Content>
             <InputParent>
-                {/*<Input placeholder={"Enter Resume Data"} value={this.state.value} onChange={this.handlechange}/>*/}
+                <Input placeholder={"Enter Resume Data"} value={this.props.value} onChange={this.props.handlechange}/>
                 <Input placeholder={"Enter Gre Score"} value={this.props.gre} onChange={this.props.handlegre}/>
 
                 <EnterButton onClick={this.props.handleclick}>

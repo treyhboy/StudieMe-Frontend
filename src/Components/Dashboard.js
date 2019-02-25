@@ -380,7 +380,7 @@ class Dashboard extends Component {
                     </Header>
                     <Route exact path="/" render={() =>this.state.status ? (
                         <Redirect to="/Dashboard"/>
-                    ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange}/>
+                    ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange} handlechange={this.handlechange} value={this.state.value}/>
                     }
                     />
                     <Route path="/Dashboard" render={() => !this.state.status ? (
