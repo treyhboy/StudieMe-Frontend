@@ -171,6 +171,7 @@ class Dashboard extends Component {
     logout(){
         sessionStorage.removeItem('LiToken');
         window.location.reload();
+
     }
     handlechange(event)
     {
@@ -338,7 +339,7 @@ class Dashboard extends Component {
                     <NavToggle>
                         <Toggle src={require('../Images/Toggle icon.svg')}/>
                     </NavToggle>
-                    <Link to={"/BlogSelection"}>
+                    <Link to={"/"}>
                     <NavIcon>
                         <Icon src={require('../Images/home.svg')}/>
                     </NavIcon>
@@ -383,7 +384,7 @@ class Dashboard extends Component {
                     }
                     />
                     <Route path="/Dashboard" render={() => !this.state.status ? (
-                        <Redirect to="/"/>
+                        <Redirect exact to="/"/>
                     ) :(<DashboardMain PieData={this.state.PieData}
                                        subGraph = {this.state.subGraph}
                                        Faculty = {this.state.Faculty}

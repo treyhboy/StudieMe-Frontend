@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Home from './Components/Home';
 import Dashboard from './Components/Dashboard';
-import Blogs from './Components/Blogs';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {Router} from 'react-router-dom';
@@ -26,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {isAuthenticated:false,token:"",tokenError:"",User:"",Data:"",PP:""};
+        this.state = {isAuthenticated:"loading",token:"",tokenError:"",User:"",Data:"",PP:""};
         this.Authtrue = this.Authtrue.bind(this);
         this.isAuth = this.isAuth.bind(this);
     }
