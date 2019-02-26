@@ -17,7 +17,7 @@
     "react-linkedin-sdk": "^1.0.12",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.5",
     "recharts": "^1.5.0",
     "socket.io-client": "^2.2.0",
     "styled-components": "^4.1.3"
