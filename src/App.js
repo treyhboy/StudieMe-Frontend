@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import Home from './Components/Home';
-import Dashboard from './Components/Dashboard';
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import {Router} from 'react-router-dom';
-import { LinkedInPopUp } from './Components/Helpers';
-import { createGlobalStyle } from 'styled-components';
-import axios from 'axios';
-import {createBrowserHistory} from 'history';
+import React, { Component } from "react";
+import { Router, BrowserRouter, Route, Switch } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import { createBrowserHistory } from "history";
+import axios from "axios";
+
+import Home from "./Components/Home";
+import Dashboard from "./Components/Dashboard";
+import { LinkedInPopUp } from "./Components/Helpers";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -15,91 +14,92 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing:border-box;
   }
+
   html{
   font-size: 10px;
   font-family: 'Lato', sans-serif;
-  
   }
-`
+`;
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {isAuthenticated:"loading",token:"",tokenError:"",User:"",Data:"",PP:""};
-        this.Authtrue = this.Authtrue.bind(this);
-        this.isAuth = this.isAuth.bind(this);
-    }
-    componentDidMount()
-    {
-        console.log("in mount")
-        if(this.state.isAuthenticated==="loading") {
-            console.log("in c1")
-            var token = JSON.parse(sessionStorage.getItem('LiToken'))
-            if (token) {
-                console.log("token true")
-                this.setState({
-                    token: token
-                })
-                axios.post(`http://localhost:1234/verify`, {token: token})
-                    .then(res => {
-                        console.log(res)
-                        this.setState({
-                            isAuthenticated: res.data.status,
-                            User:res.data.name,
-                            Data:res.data.data,
-                            PP:res.data.data.pictureUrl
-                        })
-                        console.log(this.state)
-                    })
-            }
-            else {
-                this.setState({
-                    isAuthenticated: false
-                })
-                console.log(this.state)
-            }
-        }
+  state = {
+    isAuthenticated: "loading",
+    token: "",
+    tokenError: "",
+    User: "",
+    Data: "",
+    PP: ""
+  };
 
-    }
-    Authtrue(token,user,data)
-    {
-        console.log("in auth true")
-        console.log(token)
-        console.log(user)
-        console.log(data)
+  componentDidMount() {
+    if (this.state.isAuthenticated === "loading") {
+      let token = JSON.parse(sessionStorage.getItem("LiToken"));
+
+      if (token) {
         this.setState({
-            token:token,
-            isAuthenticated:true,
-            User:user,
-            Data:data,
-            PP:data.pictureUrl
+          token: token
         });
-
-
+        axios
+          .post(`http://localhost:1234/verify`, { token: token })
+          .then(res => {
+            this.setState({
+              isAuthenticated: res.data.status,
+              User: res.data.name,
+              Data: res.data.data,
+              PP: res.data.data.pictureUrl
+            });
+          });
+      } else {
+        this.setState({
+          isAuthenticated: false
+        });
+      }
     }
-    isAuth(token)
-    {
+  }
 
-    }
+  Authtrue = (token, user, data) => {
+    this.setState({
+      token: token,
+      isAuthenticated: true,
+      User: user,
+      Data: data,
+      PP: data.pictureUrl
+    });
+  };
 
-    render() {
+  render() {
     return (
-        <Router  history={createBrowserHistory()} >
-      <div>
-        <GlobalStyle/>
+      <Router history={createBrowserHistory()}>
+        <div>
+          <GlobalStyle />
           <BrowserRouter>
-              <Switch >
-                  <Route exact path="/linkedin" component={LinkedInPopUp} />
-                      <Route path="/" render={() =>
-                          this.state.isAuthenticated==="loading"?<div>loading...</div>:
-                              (this.state.isAuthenticated?
-                              <Dashboard Authtrue={this.Authtrue} User={this.state.User} PP={this.state.PP} isAuthenticated={this.state.isAuthenticated} Data={this.state.Data}/>
-                              :<Home Authtrue={this.Authtrue} isAuthenticated={this.state.isAuthenticated} />)}
-                             />
-              </Switch>
+            <Switch>
+              <Route exact path="/linkedin" component={LinkedInPopUp} />
+              <Route
+                path="/"
+                render={() =>
+                  this.state.isAuthenticated === "loading" ? (
+                    <div>loading...</div>
+                  ) : this.state.isAuthenticated ? (
+                    <Dashboard
+                      Authtrue={this.Authtrue}
+                      User={this.state.User}
+                      PP={this.state.PP}
+                      isAuthenticated={this.state.isAuthenticated}
+                      Data={this.state.Data}
+                    />
+                  ) : (
+                    <Home
+                      Authtrue={this.Authtrue}
+                      isAuthenticated={this.state.isAuthenticated}
+                    />
+                  )
+                }
+              />
+            </Switch>
           </BrowserRouter>
-      </div>
-        </Router>
+        </div>
+      </Router>
     );
   }
 }
