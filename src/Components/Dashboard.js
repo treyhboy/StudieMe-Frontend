@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import DashboardMain from './DashboardMain';
+import User from './User';
 import Gre from './Gre';
 import {Route,Link,Redirect} from 'react-router-dom';
 import axios from 'axios';
@@ -354,9 +355,11 @@ class Dashboard extends Component {
                             <Icon src={require('../Images/settings.svg')}/>
                         </NavIcon>
                     </Link>
+                    <Link to={"/Dashboard/User"}>
                     <NavIcon>
                         <Icon src={require('../Images/man.svg')}/>
                     </NavIcon>
+                    </Link>
                 </Nav>
                 <Main>
                     <Header>
@@ -383,15 +386,18 @@ class Dashboard extends Component {
                     ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange} handlechange={this.handlechange} value={this.state.value}/>
                     }
                     />
-                    <Route path="/Dashboard" render={() => !this.state.status ? (
+                    <Route exact path="/Dashboard" render={() => !this.state.status ? (
                         <Redirect exact to="/"/>
-                    ) :(<DashboardMain PieData={this.state.PieData}
+                    ) :(<DashboardMain PieData = {this.state.PieData}
                                        subGraph = {this.state.subGraph}
                                        Faculty = {this.state.Faculty}
                                        College = {this.state.College}
                                        selectedCollege = {this.state.selectedCollege}
                                        toggle = {this.toggle}
                         />)
+                    }/>
+                    <Route path="/Dashboard/User" render={() =>
+                        (<User/>)
                     }/>
                 </Main>
             </Container>

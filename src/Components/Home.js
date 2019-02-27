@@ -212,7 +212,7 @@ class Home extends Component {
               SignUp
             </Button>
             <LinkedIn
-              clientId="81k5i16hicsnq3"
+              clientId="81fr867rjlh6t5"
               onFailure={this.handleFailure}
               onSuccess={this.handleSuccess}
               redirectUri={`${window.location.origin}/linkedin`}
