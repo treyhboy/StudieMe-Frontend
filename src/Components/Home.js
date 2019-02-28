@@ -41,6 +41,9 @@ const NavBox = styled.div`
   display: flex;
   height: 8rem;
   min-width: 30%;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const NavItem = styled.div`
@@ -61,6 +64,14 @@ const LoginBox = styled.div`
   flex-flow: row;
   height: 8rem;
   width: 22%;
+
+  @media (max-width: 1200px) {
+    margin-left: 20%;
+
+    div:nth-child(2) {
+      margin-left: 20px;
+    }
+  }
 `;
 
 const Button = styled.div`
