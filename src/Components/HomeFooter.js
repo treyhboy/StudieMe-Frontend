@@ -96,7 +96,9 @@ const Div5 = styled.div`
 const Background = styled.div`
   background: url(${props => props.bg});
   background-size: cover;
-  height: 450px;
+  height: 100%;
+  width: 100%;
+  
   padding-top: 300px;
 `;
 

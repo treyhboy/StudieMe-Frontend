@@ -7,7 +7,9 @@ const FacilityCont = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  flex-direction: row;
+  height:100%;
+  width: 100%;
+  //background-color: #2e6da4;
 `;
 
 const FacilityHead = styled.div`
@@ -15,6 +17,7 @@ const FacilityHead = styled.div`
   justify-content: center;
   font-size: 3.5rem;
   font-weight: lighter;
+  font-family: 'Lato', sans-serif;
   color: gray;
 `;
 
@@ -55,7 +58,7 @@ const Facilities = () => {
         />
         <Facility
           img={pic3}
-          title="200000+ Colleges"
+          title="20000+ Colleges"
           content="wana study abroad we hhere use our ai powered recommndation
               system.wana study abroad we hhere use our ai powered recommndation
               system."
@@ -63,7 +66,7 @@ const Facilities = () => {
         />
         <Facility
           img={pic4}
-          title="Student Membership"
+          title="No Hidden T&C"
           content="wana study abroad we hhere use our ai powered recommndation
               system.wana study abroad we hhere use our ai powered recommndation
               system."
@@ -71,7 +74,7 @@ const Facilities = () => {
         />
         <Facility
           img={pic5}
-          title="Lifetime Access"
+          title="Free Access"
           content="wana study abroad we hhere use our ai powered recommndation
               system.wana study abroad we hhere use our ai powered recommndation
               system."
@@ -79,7 +82,7 @@ const Facilities = () => {
         />
         <Facility
           img={pic6}
-          title="Live Support"
+          title="Customised Experience"
           content="wana study abroad we hhere use our ai powered recommndation
               system.wana study abroad we hhere use our ai powered recommndation
               system."
