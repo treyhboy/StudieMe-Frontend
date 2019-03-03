@@ -457,7 +457,7 @@ class Dashboard extends Component {
                         <Redirect to="/Dashboard"/>
                     ) :<Gre handleclick = {this.handleclick}
                             // handleselectedFile={this.handleselectedFile}
-                            gre={this.state.gre}
+                            // gre={this.state.gre}
                             handlegre = {this.handleGrechange}
                             handlechange={this.handlechange}
                             value={this.state.value}
