@@ -39,56 +39,44 @@ const Facilities = () => {
     <>
       <FacilityHead>Our Facilities</FacilityHead>
       <Hr />
-      <FacilityCont>
-        <Facility
+    <FacilityCont>
+      <Facility
           img={pic1}
           title="Regular Updates"
-          content="wana study abroad we hhere use our ai powered recommndation
-              system.wana study abroad we hhere use our ai powered recommndation
-              system."
+          content="Our portal is designed to continiously bring new and regularly updated content for better results "
           active={false}
-        />
-        <Facility
+      />
+      <Facility
           img={pic2}
           title="AI Powered"
-          content="wana study abroad we hhere use our ai powered recommndation
-              system.wana study abroad we hhere use our ai powered recommndation
-              system."
+          content="Machine Learning algorithms are accurately predicting colleges best suiting your profile."
           active={true}
-        />
-        <Facility
+      />
+      <Facility
           img={pic3}
           title="20000+ Colleges"
-          content="wana study abroad we hhere use our ai powered recommndation
-              system.wana study abroad we hhere use our ai powered recommndation
-              system."
+          content="We bring you colleges from all over the world."
           active={false}
-        />
-        <Facility
+      />
+      <Facility
           img={pic4}
           title="No Hidden T&C"
-          content="wana study abroad we hhere use our ai powered recommndation
-              system.wana study abroad we hhere use our ai powered recommndation
-              system."
+          content="No complicated procedures and hidden terms and conditions.."
           active={false}
-        />
-        <Facility
+      />
+      <Facility
           img={pic5}
           title="Free Access"
-          content="wana study abroad we hhere use our ai powered recommndation
-              system.wana study abroad we hhere use our ai powered recommndation
-              system."
+          content="It is a free online portal made by students for students."
           active={false}
-        />
-        <Facility
+      />
+      <Facility
           img={pic6}
-          title="Customised Experience"
-          content="wana study abroad we hhere use our ai powered recommndation
-              system.wana study abroad we hhere use our ai powered recommndation
-              system."
+          title="Customized Experience"
+          content="We care about you and your choices and not about the general notion."
           active={false}
-        />
-      </FacilityCont>
+      />
+    </FacilityCont>
     </>
   );
 };

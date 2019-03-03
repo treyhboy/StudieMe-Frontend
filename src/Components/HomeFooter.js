@@ -23,7 +23,7 @@ const Subs = styled.div`
 `;
 
 const Email = styled.input`
-  width: 290px;
+  width: 270px;
   height: 45px;
   text-align: center;
 `;
@@ -116,7 +116,7 @@ const HomeFooter = () => {
         <Button>Subscribe</Button>
       </Subs>
       <Container>
-        <Div1>Edu-Link</Div1>
+        <Div1>StudieMe</Div1>
         <Div2>
           <div>About</div>
           <div>Our Story</div>

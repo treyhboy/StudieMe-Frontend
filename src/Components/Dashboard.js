@@ -5,6 +5,7 @@ import User from './User';
 import Gre from './Gre';
 import {Route,Link,Redirect} from 'react-router-dom';
 import axios from 'axios';
+import Feedback from './Feedback';
 
 const Container = styled.div`
 display: flex;
@@ -147,7 +148,9 @@ class Dashboard extends Component {
         super(props, context);
         this.state={User:props.User,value:"",status:false,
             CollegeScore:[],College:[],PieData:[],selectedCollege:"",subs:[],gre:"",
-            Faculty:[],Publication:[],subGraph:[],CollegePer:[],PP:props.PP
+            Faculty:[],Publication:[],subGraph:[],CollegePer:[],PP:props.PP,
+            Mode:"",catagory:""
+            // ,selectedFile:null
         };
         this.handlechange = this.handlechange.bind(this);
         this.handleGrechange = this.handleGrechange.bind(this);
@@ -155,6 +158,8 @@ class Dashboard extends Component {
         this.toggle = this.toggle.bind(this);
         this.logout = this.logout.bind(this);
         this.settings = this.settings.bind(this);
+        this.changeMode = this.changeMode.bind(this)
+        this.handleCat = this.handleCat.bind(this)
     }
     componentDidMount() {
 
@@ -182,6 +187,13 @@ class Dashboard extends Component {
         }
     )
     }
+    handleCat(event)
+    {
+        let k = event.target.value;
+        console.log(k)
+        this.setState({catagory:k})
+        console.log(this.state)
+    }
     handleGrechange(event)
     {
         let u = event.target.value;
@@ -196,13 +208,22 @@ class Dashboard extends Component {
 
 
     }
+    changeMode(mode)
+    {
+     this.setState({Mode:mode})
+        console.log(this.state)
+        console.log(mode)
+
+    }
     toggle(ev){
         console.log("click click")
         console.log(ev.target.id)
         this.setState({
           selectedCollege:ev.target.id
         })
-        axios.post(`http://localhost:1234/api2`,{subs:this.state.subs,college:ev.target.id})
+        axios.post(`http://localhost:1234/api2`,{subs:this.state.subs,college:ev.target.id,Mode:this.state.Mode,
+        catagory:this.state.category
+        })
             .then(res => {
                 console.log(res.data)
                 let f = [];
@@ -224,9 +245,18 @@ class Dashboard extends Component {
             })
 
     }
+
+    // handleselectedFile = event => {
+    //     // window.console.log("fff", event.target.files[0]);
+    //     this.setState({
+    //         selectedFile: event.target.files[0],
+    //         loaded: 0
+    //     });
+    // };
+
     handleclick(gre)
     {
-        let subjects = ['Artificial Intelligence',
+        let s1 = ['Artificial Intelligence',
             'Computer Vision',
             'Machine learning & data mining',
             'Natural language processing',
@@ -253,12 +283,54 @@ class Dashboard extends Component {
             'Robotics',
             'Visualization'
         ]
+
+        var s2 = ['Aerospace Engineering',
+            'Engineering Mechanics',
+            'Biomedical Engineering',
+            'Catalysis Technology',
+            'Building Technology and Construction Management',
+            'Environmental Engineering',
+            'Geotechnical Engineering',
+            'Hydraulic and Water Resources Engineering',
+            'Structural Engineering',
+            'Transportation Engineering',
+            'Chemical Engineering',
+            'Clinical Engineering',
+            'Computer Science and Engineering',
+            'Communication and Signal Processing',
+            'Power Systems and Power Electronics',
+            'Microelectronics and VLSI Design',
+            'Control and Instrumentation',
+            'Microelectronics and Photonics',
+            'Industrial Mathematics and Scientific Computing',
+            'Thermal Engineering',
+            'Design (Mechanical Engineering)',
+            'Manufacturing Engineering',
+            'Metallurgical and Materials Engineering',
+            'Ocean Engineering',
+            'Ocean Technology',
+            'Functional Materials and Nanotechnology'
+        ]
+
+        //adddedmy**********
+        // window.console.log("upload", this.state.selectedFile);
+        // const formData = new FormData();
+        // formData.append(
+        //     "file",
+        //     this.state.selectedFile,
+        //     // this.state.selectedFile.name
+        // );
+        //***************
+
+        var subjects = this.state.Mode==="M Tech"?s2:s1
         console.log("dataa")
         console.log(this.state.gre);
         console.log(gre);
         console.log(this.props.Data);
         let t = (gre>290)?gre:this.state.gre;
-        axios.post(`http://localhost:1234/api`,{'data':this.state.value,'Lidata':this.props.Data,Gre:t})
+        axios.post(`http://localhost:1234/api`,{'data':this.state.value,'Lidata':this.props.Data,Gre:t,Mode:this.state.Mode,
+            catagory:this.state.catagory
+        })
             .then(res => {
                 console.log(res);
                 var i,j;
@@ -293,7 +365,7 @@ class Dashboard extends Component {
                     PieData:sa
                 })
                 let coll = res.data.data.college[0];
-                axios.post(`http://localhost:1234/api2`,{subs:res.data.data.subs,college:res.data.data.college[0]})
+                axios.post(`http://localhost:1234/api2`,{subs:res.data.data.subs,college:res.data.data.college[0],Mode:this.state.Mode})
                     .then(res => {
                         console.log(res)
                         console.log(res.data.faculty)
@@ -383,7 +455,16 @@ class Dashboard extends Component {
                     </Header>
                     <Route exact path="/" render={() =>this.state.status ? (
                         <Redirect to="/Dashboard"/>
-                    ) :<Gre handleclick = {this.handleclick} gre={this.state.gre} handlegre = {this.handleGrechange} handlechange={this.handlechange} value={this.state.value}/>
+                    ) :<Gre handleclick = {this.handleclick}
+                            // handleselectedFile={this.handleselectedFile}
+                            gre={this.state.gre}
+                            handlegre = {this.handleGrechange}
+                            handlechange={this.handlechange}
+                            value={this.state.value}
+                            changeMode = {this.changeMode}
+                            handleCat={this.handleCat}
+                            catagory = {this.state.category}
+                    />
                     }
                     />
                     <Route exact path="/Dashboard" render={() => !this.state.status ? (
@@ -399,6 +480,7 @@ class Dashboard extends Component {
                     <Route path="/Dashboard/User" render={() =>
                         (<User/>)
                     }/>
+                    <Route path="/feedback" render={() => (<Feedback />)} />
                 </Main>
             </Container>
         );

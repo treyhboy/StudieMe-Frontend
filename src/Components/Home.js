@@ -259,11 +259,11 @@ class Home extends Component {
               <Description>
                 <DesHead>Study Made Easy</DesHead>
                 <DesMain>
-                  Wanna study for Free ,we are here to help you with our free
-                  online content for all also having difficulty in choosing
-                  college we are here with our AI powered college recommender
-                  and student support which help you find the right college just
-                  sign up and leave the rest on us
+                  Worried about finding a college at your chosen education
+                  destination? We are here. Our AI powered engine brings the
+                  best colleges at your doorstep to find a college that best
+                  fits you! All you need to do is to tell us where you want to
+                  go and we will make it happen.
                 </DesMain>
                 <DesButton>
                   <Button
