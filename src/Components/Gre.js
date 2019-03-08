@@ -198,9 +198,10 @@ class Gre extends Component {
             <InputCatagory placeholder={"Select Category"} value={this.props.category} id={"Cat"} onChange={this.props.handleCat} display={this.state.display}>
                 <option value={"Select Category"}>Select Category</option>
                 <option value={"General"}>General</option>
-                <option value={"SC/ST"}>SC/ST</option>
+                <option value={"ST"}>ST</option>
+                <option value={"SC"}>SC</option>
                 <option value={"OBC"}>OBC</option>
-                <option value={"PWD"}>PWD</option>
+                <option value={"Gen-PwD"}>PWD</option>
             </InputCatagory>
             <InputFile
                 type="file"
