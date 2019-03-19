@@ -3,7 +3,7 @@ import { Router, BrowserRouter, Route, Switch } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { createBrowserHistory } from "history";
 import axios from "axios";
-
+import Grofers from "./Components/Grofers";
 import Home from "./Components/Home";
 import Dashboard from "./Components/Dashboard";
 import { LinkedInPopUp } from "./Components/Helpers";
@@ -75,6 +75,7 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/linkedin" component={LinkedInPopUp} />
+              <Route exact path="/Grofers" component={Grofers}/>
               <Route
                 path="/"
                 render={() =>
