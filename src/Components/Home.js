@@ -213,20 +213,20 @@ class Home extends Component {
     });
   };
 
-  login = () => {
-    fetch(
-      "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=81k5i16hicsnq3&scope=r_basicprofile&state=123456&redirect_uri=http://localhost:3002/",
-      { mode: "cors" }
-    ).then(
-      result => {
-        console.log(result.code);
-      },
-      error => {
-        console.log("error1");
-        console.log(error);
-      }
-    );
-  };
+  // login = () => {
+  //   fetch(
+  //     "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=81k5i16hicsnq3&scope=r_basicprofile&state=123456&redirect_uri=http://localhost:3002/",
+  //     { mode: "cors" }
+  //   ).then(
+  //     result => {
+  //       console.log(result.code);
+  //     },
+  //     error => {
+  //       console.log("error1");
+  //       console.log(error);
+  //     }
+  //   );
+  // };
 
   render() {
     return (
