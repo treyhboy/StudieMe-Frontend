@@ -40,7 +40,7 @@ class App extends Component {
           token: token
         });
         axios
-          .post(`http://localhost:1234/verify`, { token: token })
+          .post(`https://studieme-node.herokuapp.com/verify`, { token: token })
           .then(res => {
             this.setState({
               isAuthenticated: res.data.status,

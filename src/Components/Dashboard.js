@@ -221,7 +221,7 @@ class Dashboard extends Component {
         this.setState({
           selectedCollege:ev.target.id
         })
-        axios.post(`http://localhost:1234/api2`,{subs:this.state.subs,college:ev.target.id,Mode:this.state.Mode,
+        axios.post(`https://studieme-node.herokuapp.com/api2`,{subs:this.state.subs,college:ev.target.id,Mode:this.state.Mode,
         catagory:this.state.category
         })
             .then(res => {
@@ -328,7 +328,7 @@ class Dashboard extends Component {
         console.log(gre);
         console.log(this.props.Data);
         let t = (gre>290)?gre:this.state.gre;
-        axios.post(`http://localhost:1234/api`,{'data':this.state.value,'Lidata':this.props.Data,Gre:t,Mode:this.state.Mode,
+        axios.post(`https://studieme-node.herokuapp.com/api`,{'data':this.state.value,'Lidata':this.props.Data,Gre:t,Mode:this.state.Mode,
             catagory:this.state.catagory
         })
             .then(res => {
@@ -365,7 +365,7 @@ class Dashboard extends Component {
                     PieData:sa
                 })
                 let coll = res.data.data.college[0];
-                axios.post(`http://localhost:1234/api2`,{subs:res.data.data.subs,college:res.data.data.college[0],Mode:this.state.Mode})
+                axios.post(`https://studieme-node.herokuapp.com/api2`,{subs:res.data.data.subs,college:res.data.data.college[0],Mode:this.state.Mode})
                     .then(res => {
                         console.log(res)
                         console.log(res.data.faculty)

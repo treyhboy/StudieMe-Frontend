@@ -197,7 +197,7 @@ class Home extends Component {
       code: code
     });
     axios
-      .post(`http://localhost:1234/login`, { da: "hello world", code })
+      .post(`https://studieme-node.herokuapp.com/login`, { da: "hello world", code })
       .then(res => {
         if (res.data.status) {
           sessionStorage.setItem("LiToken", JSON.stringify(res.data.token));
