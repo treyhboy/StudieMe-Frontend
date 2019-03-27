@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="27b374a7-338e-4b51-b973-7ac877fbbcad" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Home.js" afterPath="$PROJECT_DIR$/src/Components/Home.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,9 +23,10 @@
       <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6480">
-              <caret line="367" column="64" lean-forward="false" selection-start-line="367" selection-start-column="64" selection-end-line="367" selection-end-column="64" />
+            <state relative-caret-position="-8404">
+              <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding>
+                <element signature="e#0#39#0" expanded="true" />
                 <marker date="1553639895674" expanded="true" signature="323:411" ph="{...}" />
                 <marker date="1553639895674" expanded="true" signature="439:539" ph="{...}" />
                 <marker date="1553639895674" expanded="true" signature="571:659" ph="{...}" />
@@ -57,7 +57,7 @@
       <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1937">
+            <state relative-caret-position="-920">
               <caret line="218" column="25" lean-forward="true" selection-start-line="218" selection-start-column="25" selection-end-line="218" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -124,9 +124,11 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,10 +186,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinkedIn.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LinkedIn.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Helpers/LinkedIn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
+            <state relative-caret-position="170">
               <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
               <folding>
                 <marker date="1541890994792" expanded="true" signature="174:594" ph="{...}" />
@@ -197,10 +199,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinkedInPopUp.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LinkedInPopUp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Helpers/LinkedInPopUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
+            <state relative-caret-position="0">
               <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -435,7 +437,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192674000" />
+    <option name="totallyTimeSpent" value="193754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -583,7 +585,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -881,11 +885,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Feedback.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="143" column="17" lean-forward="true" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
+          <folding>
+            <marker date="1553295233576" expanded="true" signature="166:254" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="279:385" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="410:468" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="494:555" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="587:675" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="704:866" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="894:1073" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1098:1184" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1212:1554" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1500:1553" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1581:1623" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1651:1792" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1820:1928" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="1954:2056" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="2084:2356" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="2385:2514" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="2543:2947" ph="{...}" />
+            <marker date="1553295233576" expanded="true" signature="2828:2946" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Helpers/LinkedInPopUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6480">
-          <caret line="367" column="64" lean-forward="false" selection-start-line="367" selection-start-column="64" selection-end-line="367" selection-end-column="64" />
+        <state relative-caret-position="-8404">
+          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding>
+            <element signature="e#0#39#0" expanded="true" />
             <marker date="1553639895674" expanded="true" signature="323:411" ph="{...}" />
             <marker date="1553639895674" expanded="true" signature="439:539" ph="{...}" />
             <marker date="1553639895674" expanded="true" signature="571:659" ph="{...}" />
@@ -912,25 +972,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1937">
+        <state relative-caret-position="-920">
           <caret line="218" column="25" lean-forward="true" selection-start-line="218" selection-start-column="25" selection-end-line="218" selection-end-column="25" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -964,33 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Feedback.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="143" column="17" lean-forward="true" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
-          <folding>
-            <marker date="1553295233576" expanded="true" signature="166:254" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="279:385" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="410:468" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="494:555" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="587:675" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="704:866" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="894:1073" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1098:1184" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1212:1554" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1500:1553" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1581:1623" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1651:1792" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1820:1928" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="1954:2056" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="2084:2356" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="2385:2514" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="2543:2947" ph="{...}" />
-            <marker date="1553295233576" expanded="true" signature="2828:2946" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Helpers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1001,21 +1018,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Helpers/LinkedIn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
+        <state relative-caret-position="170">
           <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
           <folding>
             <marker date="1541890994792" expanded="true" signature="174:594" ph="{...}" />
             <marker date="1541890994792" expanded="true" signature="518:593" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Helpers/LinkedInPopUp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
